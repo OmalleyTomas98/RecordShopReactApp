@@ -1,5 +1,7 @@
-body {
+.body {
   margin: 0;
+  background-color: lightblue;
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -17,3 +19,45 @@ navbar {
 
   color:"red"
 }
+
+
+/* override bootstrap navbar colors */
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom,#000000 0,#000000 100%) !important; /* override background image gradient w/ flat color */
+    color:"red"
+}
+
+.navItem {
+  color: pink;
+}
+
+#rcorners1 { 
+  border-radius: 25px;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 20px; 
+  width: 200px;
+  height: 150px;  
+}
+
+.h1{ font-family: "Helvetica Neue",
+   Helvetica, Arial, sans-serif;
+    font-size: 6px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; line-height: 6.6px; 
+  }
+    .h3 { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; 
+      font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } 
+     .p { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; 
+      font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px;
+    
+    
+        text-align: justify;
+        text-align-last: center;  
+    }
+     .blockquote { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 21px; 
+      font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; 
+    } 
+      .pre { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; 
+        font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }

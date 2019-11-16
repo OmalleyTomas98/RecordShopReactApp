@@ -8,6 +8,8 @@ export class EditorsPicks extends Component {
 
     return <div className="EditorsPicks">
     <h1> EditorsPicks</h1>
+
+
     </div>;
     }
     }
