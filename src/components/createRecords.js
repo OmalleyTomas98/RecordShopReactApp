@@ -1,4 +1,7 @@
 import React , {Component} from 'react';
+import axios from 'axios';
+
+
 
 export  class createRecords extends Component
 {
@@ -68,18 +71,23 @@ onSubmit(e)
 
 
 
-
     
-    
-     console.log('Form Submitted');
-    console.log('Record Description: ${this.state.record_description}');
-    console.log('Record artist: ${this.state.record_artist}');
-    console.log('Record year: ${this.state.record_year}');
-    console.log('Record listened: ${this.state.record_listened}'); 
-  
+    console.log('Form Submitted');  
+    console.log(`record_description: ${this.state.record_description}`);
+    console.log(`record_artist: ${this.state.record_artist}`);
+    console.log(`record_year: ${this.state.record_year}`);
+    console.log(`record_listened: ${this.state.record_listened}`);
 
 
+    const newRecord = {
+        record_description: this.state.record_description,
+        record_artist: this.state.record_artist,
+        record_year: this.state.record_year,
+        record_listened: this.state.record_listened
+    };
 
+    axios.post('http://localhost:4000/records/add', newRecord)
+        .then(res => console.log(res.data));
 
 
     this.setState({

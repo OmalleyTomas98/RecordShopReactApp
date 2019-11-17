@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
 
-import disconnected from './disconnected.png'
+import disconnected from './Pictures/disconnected.png';
+
+
+
+
+
 export class Introduction extends Component {
     render() {
     return <div className="Introduction">
+
+
+    <img src={disconnected} alt=" myLogos" />
 
     <h1>Introduction To Store</h1>
 
@@ -13,10 +21,8 @@ export class Introduction extends Component {
 
     </h1>
 
-
     <h3>
 Welcome to my MERN recordStore application Underneath you can find some of the features of  my application 
-
 
     </h3>
 
@@ -25,7 +31,6 @@ Welcome to my MERN recordStore application Underneath you can find some of the f
     
 
 
-    <img src={disconnected} alt=" myLogos" />
     </div>;
     }
     }
