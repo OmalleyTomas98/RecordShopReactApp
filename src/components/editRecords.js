@@ -1,19 +1,23 @@
+//Imports declaration , axios , react
 import React, { Component } from 'react';
 import axios from 'axios';
 
 export  class editRecords extends Component {
 
 
-    
+    //constructor declaration 
     constructor(props) {
+        // allow  access the constructor method of the parent class .
         super(props);
 
+       //This keyword binding  object to eventhandlers
         this.onChangeRecordDescription = this.onChangeRecordDescription.bind(this);
         this.onChangeRecordArtist = this.onChangeRecordArtist.bind(this);
         this.onChangeRecordYear = this.onChangeRecordYear.bind(this);
         this.onChangeRecordListened = this.onChangeRecordListened.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
+        //Record object schema
         this.state = {
             record_description: '',
             record_artist: '',
@@ -21,6 +25,8 @@ export  class editRecords extends Component {
             record_listened: false
         }
     }
+
+    //Method to receive the MongoDb records 
     componentDidMount() {
         axios.get('http://localhost:4000/records/'+this.props.match.params.id)
             .then(response => {
@@ -31,41 +37,57 @@ export  class editRecords extends Component {
                     record_listened: response.data.record_listened
                 })   
             })
+            //Catch error and display the error to the console
             .catch(function (error) {
                 console.log(error);
             })
     }
+
+//Event handler updating the state  record_description
     onChangeRecordDescription(e) {
         this.setState({
             record_description: e.target.value
         });
     }
+
+    //Event handler updating the state  record_description
     onChangeRecordArtist(e) {
         this.setState({
             record_artist: e.target.value
         });
     }
+
+     //Event handler updating the state  record_year
     onChangeRecordYear(e) {
         this.setState({
             record_year: e.target.value
         });
     }
+
+     //Event handler updating the state  record_listened
     onChangeRecordListened(e) {
         this.setState({
             record_listened: !this.state.record_listened
         });
     }
+    
+    //Event handler updating  backend of server when client clicks Submit button
     onSubmit(e) {
         e.preventDefault();
+        //
         const obj = {
             record_description: this.state.record_description,
             record_artist: this.state.record_artist,
             record_year: this.state.record_year,
             record_listened: this.state.record_listened
         };
+
+        //Output obj states to console
         console.log(obj);
+        //Take new values entered into existing record and update and send to MONGODB Server
         axios.post('http://localhost:4000/records/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
+            //Push to the / local:4000/ directory
         this.props.history.push('/');
     }
     render() {

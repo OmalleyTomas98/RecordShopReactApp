@@ -103,6 +103,5 @@ app.use('/records', recordRoutes);
 
 //Display the port in use to the console for ease of debugging
 app.listen(PORT, function() {
-
     console.log("Server is running on Port: " + PORT);
 });

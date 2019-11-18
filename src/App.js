@@ -24,7 +24,6 @@ render() {
 </Navbar>
 <br />
 
-
 <Switch>
 <Route path='/'  exact component={Introduction} />
 <Route path='/recordsList'  exact component={recordsList} />

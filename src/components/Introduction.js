@@ -1,16 +1,12 @@
+//imports react and my png
 import React, { Component } from 'react';
-
-
 import disconnected from './Pictures/disconnected.png';
 
-
-
-
+//MAINLY GUI / INFO PAGE
 
 export class Introduction extends Component {
     render() {
     return <div className="Introduction">
-
 
     <img src={disconnected} alt=" myLogos" />
 
@@ -27,9 +23,6 @@ Welcome to my MERN recordStore application Underneath you can find some of the f
     </h3>
 
     <p> Welcome to my MERN recordStore application </p>
-
-    
-
 
     </div>;
     }
