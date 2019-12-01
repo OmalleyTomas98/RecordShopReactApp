@@ -12,22 +12,23 @@ class App extends Component {
 render() {   
   return (
   
-    <Router>
+    <Router> c
     <div className="container">
  
 <Navbar bg="primary" variant="dark">
 <Nav className="mr-auto">
-<Nav.Link href="/">Introduction</Nav.Link>
-<Nav.Link href="/recordsList">Your Records List</Nav.Link>
-<Nav.Link href="/create">Create</Nav.Link>
+<Nav.Link href="/">HompePage</Nav.Link>
+<Nav.Link href="/create">Create Record Inventory</Nav.Link>
+<Nav.Link href="/recordsList">View Record Inventory</Nav.Link>
+
 </Nav>
 </Navbar>
 <br />
-
 <Switch>
 <Route path='/'  exact component={Introduction} />
 <Route path='/recordsList'  exact component={recordsList} />
 <Route path= "/edit/:id" component={editRecords} />
+
 <Route path= "/create" component={createRecords} />
 
 </Switch>

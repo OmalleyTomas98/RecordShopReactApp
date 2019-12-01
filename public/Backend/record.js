@@ -19,7 +19,7 @@ let Record = new Schema({
         type: String
     },
     record_listened: {
-        type: Boolean
+        type: String
     }
 });
 

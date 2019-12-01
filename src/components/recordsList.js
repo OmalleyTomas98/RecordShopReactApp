@@ -16,6 +16,7 @@ const Record = props => (
 
         <td>
             <Link to={"/edit/"+props.record._id}>Edit</Link>
+
         </td>
     </tr>
 )
@@ -61,14 +62,21 @@ export  class recordsList extends Component {
                             <th>Record Description</th>
                             <th>Record Artist</th>
                             <th>Record Year</th>
-                            <th>record Listened</th>
+                            <th>record Format</th>
                         </tr>
                     </thead>
                     <tbody>
                         { this.yourRecordsList() }
                     </tbody>
                 </table>
+                <div>
+                <input type="text" className="input" onChange={this.handleChange} placeholder="Search..." />
+<ul>
+</ul>
+</div>
             </div>
+
+            
         )
     }
 }

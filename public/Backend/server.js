@@ -51,6 +51,7 @@ recordRoutes.route('/:id').get(function(req, res) {
     //
     Record.findById(id, function(err, record) {
         res.json(record);
+        
     });
 });
 
@@ -99,7 +100,7 @@ recordRoutes.route('/add').post(function(req, res) {
 
 //USE the db records folder (records.js)
 app.use('/records', recordRoutes);
-
+   
 
 //Display the port in use to the console for ease of debugging
 app.listen(PORT, function() {

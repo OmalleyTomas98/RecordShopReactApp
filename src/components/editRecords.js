@@ -15,6 +15,8 @@ export  class editRecords extends Component {
         this.onChangeRecordArtist = this.onChangeRecordArtist.bind(this);
         this.onChangeRecordYear = this.onChangeRecordYear.bind(this);
         this.onChangeRecordListened = this.onChangeRecordListened.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+
         this.onSubmit = this.onSubmit.bind(this);
 
         //Record object schema
@@ -22,7 +24,7 @@ export  class editRecords extends Component {
             record_description: '',
             record_artist: '',
             record_year: '',
-            record_listened: false
+            record_listened: ''
         }
     }
 
@@ -67,7 +69,7 @@ export  class editRecords extends Component {
      //Event handler updating the state  record_listened
     onChangeRecordListened(e) {
         this.setState({
-            record_listened: !this.state.record_listened
+            record_listened: e.target.value
         });
     }
     
@@ -90,13 +92,54 @@ export  class editRecords extends Component {
             //Push to the / local:4000/ directory
         this.props.history.push('/');
     }
+
+
+
+
+
+    
+    handleChange(e) {
+        // Variable to hold the original version of the list
+    let currentList = [];
+        // Variable to hold the filtered list before putting into state
+    let newList = [];
+
+        // If the search bar isn't empty
+    if (e.target.value !== "") {
+            // Assign the original list to currentList
+      currentList = this.props.record;
+
+            // Use .filter() to determine which items should be displayed
+            // based on the search terms
+      newList = currentList.filter(item => {
+                // change current item to lowercase
+        const lc = item.toLowerCase();
+                // change search term to lowercase
+        const filter = e.target.value.toLowerCase();
+                // check to see if the current list item includes the search term
+                // If it does, it will be added to newList. Using lowercase eliminates
+                // issues with capitalization in search terms and search content
+        return lc.includes(filter);
+      });
+    } else {
+            // If the search bar is empty, set newList to original task list
+      newList = this.props.record;
+    }
+        // Set the filtered state based on what our rules added to newList
+    this.setState({
+      filtered: newList
+    });
+  }
+
+
+
     render() {
         return (
             <div>
                 <h3 align="center">Update Records</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
-                        <label> Record Description: </label>
+                        <label> Record Name: </label>
                         <input  type="text"
                                 className="form-control"
                                 value={this.state.record_description}
@@ -121,22 +164,21 @@ export  class editRecords extends Component {
                                 onChange={this.onChangeRecordYear}
                                 />
                     </div>
-                    <div className="form-check">
-                        <input  className="form-check-input"
-                                id="completedCheckbox"
-                                type="checkbox"
-                                name="completedCheckbox"
-                                onChange={this.onChangeRecordListened}
-                                checked={this.state.record_listened}
+
+
+
+                    <div className="form-group">
+                        <label>Record Format : </label>
+                        <input 
+                                type="text" 
+                                className="form-control"
                                 value={this.state.record_listened}
+                                onChange={this.onChangeRecordListened}
                                 />
-                        <label className="form-check-label" htmlFor="completedCheckbox">
-                            Completed
-                        </label>                        
                     </div>
                     <br />
                     <div className="form-group">
-                        <input type="submit" value="Update Todo" className="btn btn-primary" />
+                        <input type="submit" value="Update Record" className="btn btn-primary" />
                     </div>
                 </form>
             </div>

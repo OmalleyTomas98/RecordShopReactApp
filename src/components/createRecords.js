@@ -21,7 +21,7 @@ export  class createRecords extends Component
         record_description: '',
         record_artist: '',
         record_year: '',
-        record_listened: false
+        record_listened: ''
 }   
 }
 
@@ -88,7 +88,7 @@ onSubmit(e)
         record_description: '',
         record_artist: '',
         record_year: '',
-        record_listened: false
+        record_listened: ''
     })
 }
  render() {
@@ -121,11 +121,12 @@ onSubmit(e)
                             />
                 </div>
                 <div className="form-group">
-                    <label> Record listened: </label>
+                    <label> Record Format: </label>
                     <input  type="text"
                             className="form-control"
                             value={this.state.record_listened}
-                            onChange={this.onChangeRecordListened}
+                            onChange={this.onChangeRecordListened
+                            }
                             />
                 </div>
                 <div className ="form-group">
